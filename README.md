@@ -18,13 +18,13 @@ The download is coming soon.
   - Open `not_found.html` to edit the 404 error page
     - Tip: if you are not familiar with JSON, make sure to copy the new config into a [JSON parser](http://json.parser.online.fr) to make sure there aren't any syntax errors.
     
-# Troubleshooting
+## Troubleshooting
 If you run into any problems or have any questions, suggestions or concerns, feel free to reach out to me by [opening an issue](https://github.com/SparklingComet/url-shortener/issues).
 
-# License
+## License
 The work is licensed under the GNU General Public License v3, which may be found [here](https://github.com/SparklingComet/url-shortener/blob/master/LICENSE).
 
-# Credits/Dependencies
+## Credits/Dependencies
 Thanks to the following projects, which made this software possible:
 * Spark Framework
 * JSON-Simple
