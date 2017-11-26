@@ -30,3 +30,6 @@ dependency-reduced-pom.xml
 # Temporary and log files
 **/temp.**
 *.log
+
+# Configuration files
+url_shortener/
