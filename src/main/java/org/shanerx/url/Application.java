@@ -37,7 +37,7 @@ public class Application {
 
 			return redirect
 					.replace("$DESTINATION", (String) urls.get(url))
-					.replace("$WAIT", String.valueOf((Long) config.get("wait")));
+					.replace("$WAIT", String.valueOf(config.get("wait")));
 		});
 
 		notFound((req, res) -> {
