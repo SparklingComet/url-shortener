@@ -19,7 +19,8 @@ public class Application {
 		final JSONObject config = man.getConfig();
 		final JSONObject urls = man.getUrls();
 		final String redirect = man.getRedirectTemplate();
-
+		final String notFound = man.get404Template();
+		
 		Logger log = Logger.getLogger("LOG");
 		log.log(Level.INFO, "Successfully generated and parsed files.");
 
@@ -31,7 +32,7 @@ public class Application {
 			String url = req.params(":url");
 
 			if (!urls.containsKey(url.toLowerCase())) {
-				return "{\n  \"error\": 404,\n  \"message\": \"Not found\"\n}";
+				return notFound;
 			}
 
 			return redirect
@@ -41,7 +42,7 @@ public class Application {
 
 		notFound((req, res) -> {
 			res.type("application/json");
-			return "{\n  \"error\": 404,\n  \"message\": \"Not found\"\n}";
+			return notFound;
 		});
 
 		log.log(Level.INFO, "Done! (" + (System.currentTimeMillis() - millis)+ "ms)");
