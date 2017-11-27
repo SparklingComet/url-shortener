@@ -1,4 +1,4 @@
-package org.shanerx.webapp;
+package org.shanerx.url;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
