@@ -41,10 +41,15 @@ public class ConfigurationManager {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	private void generateConfig() throws IOException {
 		config.createNewFile();
 		PrintWriter write = new PrintWriter(config);
-		write.println("{\n  \"port\": 4567,\n  \"wait\": 0\n}");
+		//write.println("{\n  \"port\": 4567,\n  \"wait\": 0\n}");
+		JSONObject conf = new JSONObject();
+		conf.put("port", 4567);
+		conf.put("wait", 0);
+		write.println(conf.toJSONString());
 		write.close();
 	}
 
@@ -56,11 +61,10 @@ public class ConfigurationManager {
 	private void generateUrls() throws IOException {
 		urls.createNewFile();
 		PrintWriter write = new PrintWriter(urls);
-		write.println(
-				"{\n" +
-				"  \"google\": \"http://www.google.com\",\n" +
-				"  \"github\": \"https://git.io/vbeU6\"}"
-		);
+		JSONObject url = new JSONObject();
+		url.put("google", "https://www.google.com");
+		url.put("github", "https://git.io/vbeU6");
+		write.println(url.toJSONString());
 		write.close();
 	}
 
