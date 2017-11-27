@@ -62,7 +62,11 @@ public class ConfigurationManager {
 	void generateUrls() throws IOException {
 		urls.createNewFile();
 		PrintWriter write = new PrintWriter(urls);
-		write.println("{\n" + "  \"google\": \"http://www.google.com\",\n" + "  \"github\": \"https://git.io/vbeU6\"}");
+		write.println(
+			"{\n" +
+			"  \"google\": \"http://www.google.com\",\n" + 
+			"  \"github\": \"https://git.io/vbeU6\"}"
+		);
 		write.println();
 		write.close();
 	}
@@ -78,13 +82,62 @@ public class ConfigurationManager {
 	void generateRedirectTemplate() throws IOException {
 		redirect.createNewFile();
 		PrintWriter write = new PrintWriter(redirect);
-		write.println("<html>\n" + "<head>\n" + "    <title>Redirecting...</title>\n" + "    <meta http-equiv=\"refresh\" content=\"$WAIT; URL=$DESTINATION\">\n" +   "    <meta name=\"keywords\" content=\"automatic redirection\">\n" +    "</head>\n" +    "<body>\n" +    "If your browser doesn't automatically go there within a few seconds,\n" +    "you may want to go to\n" +    "<a href=\"$DESTINATION\">the destination</a>\n" +    "manually.\n" +    "</body>\n" +    "</html>");  write.println();  write.close(); }
- public File getRedirectTemplateFile() {  return redirect; }
- public String getRedirectTemplate() throws IOException {  final StringBuilder sb = new StringBuilder();  String line;  BufferedReader read = new BufferedReader(new FileReader(redirect));
-  while ((line = read.readLine()) != null) {   sb.append(line).append("\n");  }
-  return sb.toString(); }
- void generate404Template() throws IOException {  notFound.createNewFile();  PrintWriter write = new PrintWriter(notFound);  write.println("{\n  \"error\": 404,\n  \"message\": \"Not found\"\n}");  write.println();  write.close(); }
- public File get404TemplateFile() {  return notFound; }
- public String get404Template() throws IOException {  final StringBuilder sb = new StringBuilder();  String line;  BufferedReader read = new BufferedReader(new FileReader(notFound));
-  while ((line = read.readLine()) != null) {   sb.append(line).append("\n");  }
-  return sb.toString(); }}
+		write.println(
+			"<html>\n" +
+			"<head>\n" + 
+			"    <title>Redirecting...</title>\n" +
+			"    <meta http-equiv=\"refresh\" content=\"$WAIT; URL=$DESTINATION\">\n" +
+			"    <meta name=\"keywords\" content=\"automatic redirection\">\n" + 
+			"</head>\n" +
+			"<body>\n" + 
+			"If your browser doesn't automatically go there within a few seconds,\n" +
+			"you may want to go to\n" +
+			"<a href=\"$DESTINATION\">the destination</a>\n" +
+			"manually.\n" + 
+			"</body>\n" +  
+			"</html>"
+		);  
+		write.println(); 
+		write.close();
+	}
+	
+	public File getRedirectTemplateFile() {
+		return redirect;
+	}
+	
+	public String getRedirectTemplate() throws IOException { 
+		final StringBuilder sb = new StringBuilder(); 
+		String line;  
+		BufferedReader read = new BufferedReader(new FileReader(redirect));
+	 
+		while ((line = read.readLine()) != null) {
+			sb.append(line).append("\n"); 
+		}
+	 
+		return sb.toString(); 
+	}
+	
+	void generate404Template() throws IOException { 
+		notFound.createNewFile(); 
+		PrintWriter write = new PrintWriter(notFound);  
+		write.println("{\n  \"error\": 404,\n  \"message\": \"Not found\"\n}"); 
+		write.println(); 
+		write.close(); 
+	}
+	
+	public File get404TemplateFile() { 
+		return notFound; 
+	}
+	
+	public String get404Template() throws IOException { 
+		final StringBuilder sb = new StringBuilder(); 
+		String line;
+		BufferedReader read = new BufferedReader(new FileReader(notFound));
+		
+		while ((line = read.readLine()) != null) {  
+			sb.append(line).append("\n");  
+		}
+		
+		return sb.toString(); 
+	}
+}
