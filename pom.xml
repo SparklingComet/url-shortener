@@ -5,8 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.shanerx</groupId>
-    <artifactId>webapp</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <artifactId>url-shortener</artifactId>
+    <version>1.0.0</version>
 
     <build>
         <defaultGoal>package</defaultGoal>
@@ -44,7 +44,7 @@
                                 </transformer>
                             </transformers>
                             <createDependencyReducedPom>false</createDependencyReducedPom>
-                            <finalName>${project.artifactId}</finalName>
+                            <finalName>${project.artifactId}-v${project.version}</finalName>
                         </configuration>
                     </execution>
                 </executions>
